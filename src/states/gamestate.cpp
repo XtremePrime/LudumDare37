@@ -9,15 +9,24 @@ GameState* GameState::instance(){
 
 void GameState::init(Game* game)
 {
-	tx.load_sheet("res/ss2.png");
-	tx.load_texture("flower1", 0, 0, 1, 1);
-	tx.load_texture("flower2", 1, 0, 1, 1);
+	tx.load_sheet("res/ss.png");
+	tx.load_texture("bed", 0, 0, 3, 2);
+	tx.load_texture("desk", 3, 0, 2, 2);
+	tx.load_texture("fridge", 5, 0, 1, 2);
 
-	// sprites["flower1"].setTexture(tx.get_ref("flower1"));
-	// sprites["flower1"].setPosition(game->get_width()/2, game->get_height()/2);
-	// sprites["flower1"].scale(3, 3);
+	tx.load_texture("player", 6, 2, 3, 2);
 
-	player.init(tx.get_ref("flower1"), sf::Vector2f(100, 100), sf::Vector2i(16, 16));
+	sprites["bed"].setTexture(tx.get_ref("bed"));
+	sprites["bed"].setOrigin(0, (2*16));
+	sprites["bed"].setPosition(200, 100);
+	sprites["bed"].scale(2.5f, 2.5f);
+
+	sprites["desk"].setTexture(tx.get_ref("desk"));
+	sprites["desk"].setOrigin((2*16)/2.0f, (2*16)/2.0f);
+	sprites["desk"].setPosition(300, 100);
+	sprites["desk"].scale(3.f, 3.f);
+
+	player.init(tx.get_ref("player"), sf::Vector2f(100, 100), sf::Vector2i(16, 32));
 }
 
 void GameState::cleanup()
@@ -27,23 +36,23 @@ void GameState::cleanup()
 
 void GameState::handle_events(Game* game, sf::Event event)
 {
-
+	player.handle_events(event);
 }
 
 void GameState::update(Game* game, sf::Time deltaTime)
 {
-
+	player.update(deltaTime);
 }
 
 void GameState::render(Game* game)
 {
-	player.render(game->get_window());
-
 	//- Render sprites
 	#define it_type std::map<std::string, sf::Sprite>::iterator
 	for(it_type it = sprites.begin(); it != sprites.end(); ++it)
 		game->get_window()->draw(it->second);
 	#undef it_type
+
+	player.render(game->get_window());
 }
 
 void GameState::pause()

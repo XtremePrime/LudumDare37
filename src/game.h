@@ -15,8 +15,8 @@ class Game
 {
 private:
 	sf::RenderWindow window;
-	const int GAME_WIDTH = 860, GAME_HEIGHT = 640;
-	const float SCALE = 1.0;
+	const int GAME_WIDTH = 640, GAME_HEIGHT = 480;
+	const float SCALE = 1.5f;
 	bool is_running = true;
 	sf::Clock clock;
 	std::vector<State*> state_stack;

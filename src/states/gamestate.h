@@ -4,6 +4,7 @@
 #include "state.h"
 #include "../texturemanager.h"
 #include "../entities/player.h"
+#include <SFML/Graphics.hpp>
 
 class GameState : public State
 {
