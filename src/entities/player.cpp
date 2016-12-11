@@ -45,6 +45,11 @@ void Player::handle_events(sf::Event event)
 		{
 			right = true;
 		}
+
+		if(event.key.code == sf::Keyboard::D)
+		{
+			right = true;
+		}
 	}
 	else if(event.type == sf::Event::KeyReleased)
 	{

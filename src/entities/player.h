@@ -21,6 +21,8 @@ private:
 	sf::IntRect sprite_source;
 	int offset = 4;
 	int frame = 0;
+
+	int actions = 10, max_actions = 10;
 public:
 	void init(sf::Texture& tx, sf::Vector2f p, sf::Vector2i s);
 	void move(sf::Time);
