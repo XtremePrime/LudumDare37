@@ -7,6 +7,7 @@ void Player::init(sf::Texture& tx, sf::Vector2f p, sf::Vector2i s)
 	this->tx = tx;
 	this->dir = 1;
 
+	//anims
 	sprite_source = sf::IntRect(frame, 2, 16, 32);
 	sprite.setTexture(tx);
 	sprite.setTextureRect(sprite_source);
@@ -15,6 +16,11 @@ void Player::init(sf::Texture& tx, sf::Vector2f p, sf::Vector2i s)
 	sprite.scale(3,3);
 
 	this->left = this->right = false;
+
+	//- skills
+	skills.push_back("Studying");
+	skills.push_back("Games");
+	skills.push_back("");	
 }
 
 void Player::move(sf::Time dt)

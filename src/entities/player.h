@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include <vector>
+#include <string>
 
 class Player
 {
@@ -23,6 +25,8 @@ private:
 	int frame = 0;
 
 	int actions = 10, max_actions = 10;
+
+	std::vector<int> skills;
 public:
 	void init(sf::Texture& tx, sf::Vector2f p, sf::Vector2i s);
 	void move(sf::Time);
