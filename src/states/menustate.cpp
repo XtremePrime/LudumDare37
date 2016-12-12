@@ -20,7 +20,6 @@ void MenuState::init(Game* game)
 		options.push_back("New Game");
 	else
 		options.push_back("Continue");
-	options.push_back("Quit");
 
 	this->font.loadFromFile("res/font/PressStart2P.ttf");
 
@@ -36,6 +35,10 @@ void MenuState::init(Game* game)
 		option_text.setString(msg);
 	}
 
+	tx.loadFromFile("res/screens/intro.png");
+	sprite.setTexture(tx);
+	sprite.setPosition(0,-10);
+	sprite.scale(0.7,0.7);
 }
 
 void MenuState::cleanup()
@@ -84,6 +87,7 @@ void MenuState::update(Game* game, sf::Time deltaTime)
 
 void MenuState::render(Game* game)
 {
+	game->get_window()->draw(sprite);
 	game->get_window()->draw(option_text);
 }
 

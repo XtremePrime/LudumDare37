@@ -1,0 +1,17 @@
+<dialogue id="101" condition="!npc.carsFixed">
+  <message>Localize.FixMyCar</message>
+  <choices>
+    <choice condition="hero.carFixingSkill > 5" priority="7" id="Localize.Sure">
+      <command>hero.carFixingSkills += 1</command>
+      <command>npc.carFixed = true</command>
+      <command>hero.playSmokeAnimation()</command>
+      <command>nextDialogue = 104</command>
+    </choice>
+    <choice condition="hero.carFixingSkill <= 5" id="Localize.CantFix">
+      <command>nextDialogue = 105</command>
+    </choice>
+    <choice id="Localize.FixYourself">
+      <command>npc.likesHero -= 1</command>
+    </choice>
+  </choices>
+</dialogue>

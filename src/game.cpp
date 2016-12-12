@@ -9,12 +9,12 @@ void Game::init()
 	// savefile.init(gameobject.player);
 
 	//- Init context settings
-	settings.antialiasingLevel = 8;
+	settings.antialiasingLevel = 0;
 
 	view.reset(sf::FloatRect(0, 0, GAME_WIDTH/SCALE, GAME_HEIGHT/SCALE));
 
 	//- Init Win Window
-	this->window.create(sf::VideoMode(GAME_WIDTH, GAME_HEIGHT), "Untitled Game", sf::Style::Titlebar | sf::Style::Close, settings);
+	this->window.create(sf::VideoMode(GAME_WIDTH, GAME_HEIGHT), "Life Waypoint", sf::Style::Titlebar | sf::Style::Close | sf::Style::Resize, settings);
 	this->window.setVerticalSyncEnabled(true);
 	this->window.setKeyRepeatEnabled(false);
 	this->window.setView(view);
@@ -61,7 +61,7 @@ void Game::update(sf::Time dt)
 
 void Game::render(sf::RenderWindow &window)
 {
-	window.clear();
+	window.clear(sf::Color::Black);
 	state_stack.back()->render(this);
 	// window.draw(cursor);
 	window.display();

@@ -1,5 +1,5 @@
-#ifndef MENUSTATE_H
-#define MENUSTATE_H
+#ifndef ENDSTATE_H
+#define ENDSTATE_H
 
 #include "state.h"
 #include <iostream>
@@ -8,23 +8,20 @@
 #include <SFML/Graphics.hpp>
 #include "gamestate.h"
 
-class MenuState : public State
+class EndState : public State
 {
 private:
 	sf::Font font;
 	std::vector<std::string> options;
 	int width, height, selector;
-	bool newgame;
-	sf::Text option_text;
-
 	sf::Texture tx;
 	sf::Sprite sprite;
 protected:
-	static MenuState* _instance;
-	MenuState(){}
+	static EndState* _instance;
+	EndState(){}
 public:
-	static MenuState* instance();
-    ~MenuState(){}
+	static EndState* instance();
+    ~EndState(){}
 	void init(Game* game);
 	void cleanup();
 
@@ -44,4 +41,4 @@ public:
  	}
 };
 
-#endif // MENUSTATE_H
+#endif // ENDSTATE_H

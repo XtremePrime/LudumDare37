@@ -9,6 +9,7 @@
 #include <SFML/Audio.hpp>
 
 #include "gameobject.h"
+#include "pugixml.hpp"
 
 class State;
 class Game
@@ -42,8 +43,8 @@ public:
 	sf::RenderWindow* get_window() { return &window; }
 	GameObject* get_gameobject() { return &gameobject; }
 	std::vector<State*> get_state_stack() { return state_stack; }
-	int get_width() { return this->GAME_WIDTH/this->SCALE; }
-	int get_height() { return this->GAME_HEIGHT/this->SCALE; }
+	float get_width() { return this->GAME_WIDTH/this->SCALE; }
+	float get_height() { return this->GAME_HEIGHT/this->SCALE; }
 	float get_scale(){ return this->SCALE; }
 	//SaveFile& get_save() { return this->savefile; }
 };
